@@ -72,58 +72,58 @@ var bodyParser = require('body-parser');
 
     // });
 
-    // Post Json
-    app.post('comment', function(req, res){
+    // // Post Json
+    // app.post('comment', function(req, res){
 
-        var userComment = req.body.quality;
-        currentId++;
+    //     var userComment = req.body.quality;
+    //     currentId++;
 
-        quality.push({
-            id: currentId,
-            quality: userComment
-        });
+    //     quality.push({
+    //         id: currentId,
+    //         quality: userComment
+    //     });
 
-        res.send('Successfully created product!');
+    //     res.send('Successfully created product!');
 
-    });
+    // });
 
-    // Put Json
-    app.put('comment/:id', function(req, res){
+    // // Put Json
+    // app.put('comment/:id', function(req, res){
 
-        var id = req.params.id;
-        var newUserComment = req.body.newUserComment;
+    //     var id = req.params.id;
+    //     var newUserComment = req.body.newUserComment;
 
-        var found = false;
+    //     var found = false;
 
-        quality.forEach(function(quality, index){
-            if(!found && quality.id === Number(id)){
-                quality.userComment = newUserComment;
-            }
-        });
-        res.send('Sucessfully updated product!');
+    //     quality.forEach(function(quality, index){
+    //         if(!found && quality.id === Number(id)){
+    //             quality.userComment = newUserComment;
+    //         }
+    //     });
+    //     res.send('Sucessfully updated product!');
 
-    });
+    // });
 
-    // Update Json
-    app.delete('comment/:id', function(req,res){
+    // // Update Json
+    // app.delete('comment/:id', function(req,res){
 
-        var id = req.params.id;
-        var found = false;
+    //     var id = req.params.id;
+    //     var found = false;
 
-        quality.forEach(function(quality, index){
-            if(!found && quality.id === Number(id)){
-                quality.splice(index, 1);
-            }
-        })
-        res.send('Successfully deleted product!!!');
+    //     quality.forEach(function(quality, index){
+    //         if(!found && quality.id === Number(id)){
+    //             quality.splice(index, 1);
+    //         }
+    //     })
+    //     res.send('Successfully deleted product!!!');
 
-    });
+    // });
 
-    app.listen(PORT, function(){
+    // app.listen(PORT, function(){
 
-        console.log('Server listening on ' + PORT);
+    //     console.log('Server listening on ' + PORT);
          
-    })
+    // })
 
 
  }
