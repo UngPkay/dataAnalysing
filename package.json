@@ -4,6 +4,7 @@
   "description": "mining",
   "main": "index.js",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "fs": "^0.0.1-security",
     "json-find": "^2.0.3",
@@ -12,7 +13,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "none"
+    "test": "none",
+    "start": "index.js"
   },
   "repository": {
     "type": "git",
