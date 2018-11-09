@@ -55,7 +55,7 @@ var bodyParser = require('body-parser');
     app.use(bodyParser.json());
 
     // Get Json
-    app.get('/api/comment', function(req, res, next){
+    app.get('/api/comment', function(req, res){
 
         res.send(json);
 
