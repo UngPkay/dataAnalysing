@@ -1,0 +1,30 @@
+{
+  "name": "analysingdata",
+  "version": "1.0.0",
+  "description": "mining",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "fs": "^0.0.1-security",
+    "json-find": "^2.0.3",
+    "request": "^2.88.0",
+    "sentiment": "^5.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UngPkay/dataAnalysing.git"
+  },
+  "keywords": [
+    "0.4.7"
+  ],
+  "author": "Pkaypreak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UngPkay/dataAnalysing/issues"
+  },
+  "homepage": "https://github.com/UngPkay/dataAnalysing#readme"
+}
