@@ -15,6 +15,7 @@ analysingData(body)
 
  // analysing data from server
  function analysingData(body){
+    
     var Sentiment = require('sentiment');
     var sentiment = new Sentiment();
     var mydocx = [];
@@ -32,6 +33,7 @@ analysingData(body)
 
 // exporting file json to server
 var express = require('express');
+const cors = require('cors');
 var app = express();
 var bodyParser = require('body-parser');
 
@@ -40,7 +42,9 @@ var bodyParser = require('body-parser');
      };
 
     for(var j = 0 ; j<scoreComment.length ; j++){
-        obj.comment.push({id: j, quality: scoreComment[j]});
+        obj.comment.push({id: j,
+                         quality: scoreComment[j]
+                        });
     }
 
    
@@ -55,25 +59,15 @@ var bodyParser = require('body-parser');
     app.use(bodyParser.json());
 
     // Get Json
-    app.get('/api/comment', function(req, res){
+    app.get('/comment', cors({ methods:['GET']}), function(req, res){
 
         res.send(json);
 
     });
-    // app.get('/api/comment/:id', function(req, res){
-
-    //     const comment = json.find(c => c.id === parseInt(req.params.id));
-    //     if(!comment)
-    //         res.status(404).send('The couse with the given ID was not found');
-        
-    //         res.send(comment);
-        
    
 
-    // });
-
-    // // Post Json
-    // app.post('comment', function(req, res){
+    // Post Json
+    // app.post('/comment', cors({ methods:['GET']}), function(req, res){
 
     //     var userComment = req.body.quality;
     //     currentId++;
@@ -88,7 +82,7 @@ var bodyParser = require('body-parser');
     // });
 
     // // Put Json
-    // app.put('comment/:id', function(req, res){
+    // app.put('/comment/:id', cors({ methods:['GET']}), function(req, res){
 
     //     var id = req.params.id;
     //     var newUserComment = req.body.newUserComment;
@@ -105,7 +99,7 @@ var bodyParser = require('body-parser');
     // });
 
     // // Update Json
-    // app.delete('comment/:id', function(req,res){
+    // app.delete('comment/:id', cors({ methods:['GET']}), function(req,res){
 
     //     var id = req.params.id;
     //     var found = false;
@@ -119,11 +113,11 @@ var bodyParser = require('body-parser');
 
     // });
 
-    // app.listen(PORT, function(){
+    app.listen(PORT, function(){
 
-    //     console.log('Server listening on ' + PORT);
+        console.log('Server listening on ' + PORT);
          
-    // })
+    })
 
 
  }
