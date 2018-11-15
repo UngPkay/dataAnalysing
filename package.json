@@ -2,7 +2,7 @@
   "name": "analysingdata",
   "version": "1.0.0",
   "description": "mining",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.16.4",
@@ -13,8 +13,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "none",
-    "start": "index.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
