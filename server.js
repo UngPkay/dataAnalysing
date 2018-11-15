@@ -38,7 +38,7 @@ var express = require('express');
 
 const cors = require('cors');
 var app = express();
-app.use(express.static('public'));
+app.use(express.static('index.html'));
 var bodyParser = require('body-parser');
 
     var obj = {
