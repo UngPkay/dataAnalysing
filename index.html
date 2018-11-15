@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+  <title>Line</title>
+
+</head>
+<body>
+
+<br>
+  <div class="container">
+    <canvas id="myChart"></canvas>
+  </div>
+  <div class="container">
+    <canvas id="myChart"></canvas>
+  </div>
+
+<script>
+ $.ajax({
+        
+            //CP1. Complete Ajax Code to GET ALL pin data 
+            type: "GET",
+            url: "https://surveyapiv120181102014558.azurewebsites.net/Api/Questions",
+        
+        }).then(function (data) {
+            
+            analysingData(data);
+           // console.log(dataTable);
+        });
+        function analysingData(data){
+          var dataE = 0;
+          var dataG = 0;
+          var dataF = 0;
+          var dataU = 0;
+          for(var i = 0 ; i<data.length ; i++){
+            dataE = dataE + data[i].Excellent;
+            dataG = dataG + data[i].Good;
+            dataF = dataF + data[i].Fair;
+            dataU = dataU + data[i].Unsatisfy;
+          }
+          console.log(dataE+" "+dataG+" "+dataF+" "+dataU);
+
+
+
+
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let massPopChart = new Chart(myChart, {
+      type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['Excellent', 'Good', 'Fair', 'Unsatisfy'],
+        datasets:[{
+          label:'Quaity',
+          data:[
+            dataE,
+            dataG,
+            dataF,
+            dataU
+          ],
+          //backgroundColor:'green',
+          backgroundColor:[
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)',
+            'rgba(255, 99, 132, 0.6)'
+          ],
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'User opinion by Line',
+          fontSize:25
+        },
+        legend:{
+          display:true,
+          position:'center',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        layout:{
+          padding:{
+            left:50,
+            right:0,
+            bottom:0,
+            top:0
+          }
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+
+
+        }
+
+
+  </script>
+
+  <script>
+ $.ajax({
+        
+            //CP1. Complete Ajax Code to GET ALL pin data 
+            type: "GET",
+            url: "https://surveyapiv120181102014558.azurewebsites.net/Api/Questions",
+        
+        }).then(function (data) {
+            
+            analysingData(data);
+           // console.log(dataTable);
+        });
+        function analysingData(data){
+          var dataE = 0;
+          var dataG = 0;
+          var dataF = 0;
+          var dataU = 0;
+          for(var i = 0 ; i<data.length ; i++){
+            dataE = dataE + data[i].Excellent;
+            dataG = dataG + data[i].Good;
+            dataF = dataF + data[i].Fair;
+            dataU = dataU + data[i].Unsatisfy;
+          }
+          console.log(dataE+" "+dataG+" "+dataF+" "+dataU);
+
+
+
+
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let massPopChart = new Chart(myChart, {
+      type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['Excellent', 'Good', 'Fair', 'Unsatisfy'],
+        datasets:[{
+          label:'Quaity',
+          data:[
+            dataE,
+            dataG,
+            dataF,
+            dataU
+          ],
+          //backgroundColor:'green',
+          backgroundColor:[
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)',
+            'rgba(255, 99, 132, 0.6)'
+          ],
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'User opinion by Pie',
+          fontSize:25
+        },
+        legend:{
+          display:true,
+          position:'center',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        layout:{
+          padding:{
+            left:50,
+            right:0,
+            bottom:0,
+            top:0
+          }
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+
+
+        }
+
+
+  </script>
+</body>
+</html>
